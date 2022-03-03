@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YuwandaIndra</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://yuwandaindra.files.wordpress.com/2020/07/watermark.png?w=640"
+    />
+
+    <!-- Firebase Script -->
+    <script defer src="/__/firebase/9.6.2/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/9.6.2/firebase-database-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/9.6.2/firebase-analytics-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.6.2/firebase-performance-compat.js"
+    ></script>
+    <script defer src="/__/firebase/init.js?useEmulator=false"></script>
+  </head>
+  <body>
+    <div class="topnav">
+      <h3>Monitoring Kualitas Udara</h3>
+    </div>
+    <div class="content">
+      <div class="cards">
+        <div class="card temperature">
+          <h2><i class="fas fa-thermometer-half"></i> kelembaban</h2>
+          <p id="Hum">0</p>
+        </div>
+        <div class="card humidity">
+          <h2><i class="fas fa-tint"></i> Suhu</h2>
+          <p id="Temp">0</p>
+        </div>
+        <div class="card gas">
+          <h2><i class="fas fa-wind"></i> Voc</h2>
+          <p id="Voc">0</p>
+        </div>
+        <div class="card pressure">
+          <h2><i></i> Kategori</h2>
+          <p id="hoho"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Script -->
+    <script src="assets/js/index.js"></script>
+    <script src="../src/fuzzy-min.js"></script>
+<script>
+	var obj = {
+		crisp_input: [Hum, Temp, Voc],
+		variables_input: [
+			{
+				name: "Suhu",
+				setsName: ["dingin", "sejuk", "normal","panas"],
+				sets: [
+					[18,20.33,22.67,25],
+					[22,24.33,26.67,29],
+					[26,30.33,34.67,39],
+					[32,36.33,40.67,45]
+				]
+			},
+			{
+				name: "Kelembaban",
+				setsName: ["kering", "sedang", "basah", "sangat Basah"],
+				sets: [
+					[40,50,60,70],
+					[60,66.67,73.35,80.01],
+					[70,76.68,83.35,90.01],
+					[80,86.67,93.34,100]
+				]
+			},
+			{
+				name: "VOC",
+				setsName: ["sangat aman", "aman", "berbahaya", "sangat berbahaya"],
+				sets: [
+					[0,0.0333,0.0666,0.0999],
+					[0.8,0.1533,0.2266,0.3],
+					[0.26,0.34,0.42,0.5],
+					[0.44,1.293,2.147,3],
+				]
+			},
+		],
+		variable_output: {
+			name: "Kategori",
+			setsName: ["sehat", "Tidak sehat",],
+			sets: [
+        [1,1,1,1],
+        [0,0,0,0],
+			]
+		},
+		inferences: [
+			[0,1,0],
+			[0,0,1],
+			[1,0,0]
+		]
+	};
+	var fl = new FuzzyLogic();
+</script>
+  </body>
+</html>

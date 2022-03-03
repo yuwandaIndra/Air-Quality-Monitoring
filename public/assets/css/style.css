@@ -1,0 +1,70 @@
+html {
+  font-family: Arial;
+  display: inline-block;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  background-color: white;
+  background-image: url("../img/s.jpg");
+  background-repeat: repeat;
+  background-size: 15%;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #254284;
+  color: white;
+  font-size: 1.7rem;
+  box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, 0.5);
+  margin-bottom: 50px;
+}
+
+.content {
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, 0.5);
+}
+
+.cards {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.reading {
+  font-size: 2.8rem;
+}
+
+.card.temperature {
+  color: #0e7c7b;
+}
+
+.card.humidity {
+  color: #17bebb;
+}
+
+.card.pressure {
+  color: hsl(113, 61%, 29%);
+}
+
+.card.gas {
+  color: #ff8e00;
+}
+
+#id {
+  font-size: 1px;
+  color: black;
+}
